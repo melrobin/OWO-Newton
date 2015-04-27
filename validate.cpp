@@ -1,20 +1,18 @@
 #include <string>
-//#include <iomanip>
 #include "utils.h"
 #include <valarray>
-//#include <ctime>
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include "mlp.h"
-//#include <cassert>
 #ifndef MYDEFS_H
 #define MYDEFS_H
 #include "mydefs.h"
 #endif
 #include "matops.h"
 #include "fortran.h"
-
+// Perform validation of an MLP using MSE criterion.  This should probably be moved into the MLP class.
+// Maybe next version after moving matops to BOOST.
 double validate(MLP* X,string val_fname)
 {
    double E=0;
