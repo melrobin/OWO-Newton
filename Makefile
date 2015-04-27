@@ -12,14 +12,14 @@ LM_SOURCES=mlp_lm.cpp allocmem.cpp conjugat.cpp get.cpp random.cpp \
            lm_conj.cpp setup.cpp lmfuncs.cpp matrix.cpp mlp.cpp matops.cpp \
            stats.cpp
 LM_CSOURCES= mt19937ar.c
-CSOURCES=allocmem.c mt19937ar.c readutils.c utils.c
+CSOURCES=allocmem.c mt19937ar.c readutils.c 
 FSOURCES=
 F77 = gfortran
 CC=gcc
 CXX=g++
 CFLAGS=-g -c -Wall 
 LD=ld
-LDFLAGS= -L/home/melrobin/research/MLP -L/usr/local/atlas/lib -lf77blas -lcblas -ltatlas -lm -lgfortran -lrt -lQtGui -lQtCore 
+LDFLAGS= -L/usr/local/atlas/lib -lf77blas -lcblas -ltatlas -lm -lgfortran -lrt
 MKLFLAGS= -lmkl_intel_ilp64 -lmkl_intel_thread -lmkl_core -openmp -lpthread -lrt
 CPPOBJECTS=$(CPPSOURCES:.cpp=.o)
 CPPOBJECTS2=$(CPPSOURCES2:.cpp=.o)
