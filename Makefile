@@ -1,7 +1,9 @@
 CPPSOURCES=ols.cpp random.cpp mlp.cpp stats.cpp owo.cpp \
 	timer.cpp setup.cpp main.cpp derivs.cpp olf.cpp\
         newton.cpp cgrad.cpp train.cpp cgutils.cpp validate.cpp matrix.cpp matops.cpp
-
+vpath %.cpp src
+vpath %.c src
+INCLUDE := include
 CPPSOURCES2=ols.cpp random.cpp mlp.cpp stats.cpp owo.cpp \
 	timer.cpp setup.cpp main2.cpp derivs.cpp olf.cpp\
         newton.cpp cgrad.cpp train.cpp cgutils.cpp validate.cpp
@@ -12,7 +14,7 @@ LM_SOURCES=mlp_lm.cpp allocmem.cpp conjugat.cpp get.cpp random.cpp \
            lm_conj.cpp setup.cpp lmfuncs.cpp matrix.cpp mlp.cpp matops.cpp \
            stats.cpp
 LM_CSOURCES= mt19937ar.c
-CSOURCES=allocmem.c mt19937ar.c readutils.c utils.c
+CSOURCES=allocmem.c mt19937ar.c readutils.c #utils.c
 FSOURCES=
 F77 = gfortran
 CC=gcc
@@ -39,10 +41,10 @@ mlp2: $(CPPOBJECTS2) $(COBJS) $(FOBJS)
 all: mlp process
 
 .cpp.o:
-	$(CXX) $(CFLAGS) $< -o $@
+	$(CXX) -I$(INCLUDE) $(CFLAGS) $< -o $@
 
 .c.o:
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) -I$(INCLUDE) $(CFLAGS) $< -o $@
 
 .f.o:
 	$(F77) -c $< -o $@
